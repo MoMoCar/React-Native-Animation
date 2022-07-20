@@ -9,12 +9,19 @@ export default function Home({ navigation }) {
             <NavigationBtn
                 title={'BasicExample'}
                 navigateTo={() => navigation.navigate('BasicExample')}
-                backgroundColor = {{backgroundColor:'#a1cef0'}}
+                backgroundColor={{ backgroundColor: COLOR[1] }}
+            />
+
+            <NavigationBtn
+                title={'MovableSquare'}
+                navigateTo={() => navigation.navigate('MovableSquare')}
+                backgroundColor={{ backgroundColor: COLOR[2] }}
             />
 
             <NavigationBtn
                 title={'BottomSheetExample'}
                 navigateTo={() => navigation.navigate('BottomSheetExample')}
+                backgroundColor={{ backgroundColor: COLOR[3] }}
             />
 
         </SafeAreaView>
@@ -33,7 +40,7 @@ const Header = () => {
 
 const NavigationBtn = (props) => (
     <TouchableOpacity
-        style={[styles.btnContainer,props.backgroundColor]}
+        style={[styles.btnContainer, props.backgroundColor]}
         onPress={() => props.navigateTo()}
     >
         <Text style={styles.btnText}>{props.title}</Text>
@@ -56,3 +63,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
     }
 })
+
+const COLOR = [
+    '#ccccdd',
+    '#bea9bb',
+    '#dddddd',
+    '#6199be',
+    '#779999',
+    '#be88a2',
+    '#98bb83',
+    '#c2bb85'
+]

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home'
 import BottomSheetExample from './src/screens/BottomSheetExample';
 import BasicExample from './src/screens/BasicExample';
+import MovableSquare from './src/screens/MovableSquare';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,17 +19,25 @@ export default function App(props) {
           options={{ title: 'Home Page', headerShown: false }}
         />
         {/* BottomSheet Animation */}
-        <Stack.Screen 
-          name="BottomSheetExample" 
-          component={BottomSheetExample} 
-          options={{ title: 'Detail Page', headerShown: false }} 
+        <Stack.Screen
+          name="BottomSheetExample"
+          component={BottomSheetExample}
+          options={{ title: 'Detail Page', headerShown: false }}
         />
         {/* Basic Example */}
-        <Stack.Screen 
-          name="BasicExample" 
-          component={BasicExample} 
-          options={{ title: 'BasicExample', headerShown: false }} 
+        <Stack.Screen
+          name="BasicExample"
+          component={BasicExample}
+          options={{ title: 'BasicExample', headerShown: false }}
         />
+
+        {/* Movable Square */}
+        <Stack.Screen
+          name="MovableSquare"
+          component={MovableSquare}
+          options={{ title: 'MovableSquare', headerShown: false }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
