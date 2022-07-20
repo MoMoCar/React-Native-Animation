@@ -22,14 +22,15 @@ export default function MovableSquare(props) {
         onActive: (event, context) => {
             translateX.value = event.translationX + context.translateX
             translateY.value = event.translationY + context.translateY
-            console.log('onActive Coordinates X: ', translateX.value, ' Y: ', translateY.value)
+            // console.log('onActive Coordinates X: ', translateX.value, ' Y: ', translateY.value)
         },
         onEnd: (event) => {
             const distance = Math.sqrt(translateX.value ** 2 + translateY.value ** 2)
-            console.log('Distance',distance)
             if(distance > CIRCLE_RADIUS - SIZE / 2 ){
                 translateX.value = withSpring(0);
                 translateY.value = withSpring(0);
+                alert('Position will reset soon!!')
+                console.log('We could do something fantastic here! ')
             }
         
         }
