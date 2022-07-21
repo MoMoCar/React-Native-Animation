@@ -4,6 +4,7 @@ import Animated, {useAnimatedScrollHandler, useSharedValue} from 'react-native-r
 import COLOR from '../tools/COLOR';
 import Page from '../components/Page';
 
+//define your words here
 const WORDS = ['Hello','Welcome','to','Steer'];
 
 export default function ScrollView(props) {
