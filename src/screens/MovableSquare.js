@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, Text, StatusBar } from "react-native";
+import React, { useRef } from 'react';
+import { View, StyleSheet, Text, StatusBar, TouchableOpacity } from "react-native";
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import COLOR from '../tools/COLOR';
@@ -31,9 +31,12 @@ export default function MovableSquare(props) {
                 translateX.value = withSpring(0);
                 translateY.value = withSpring(0);
             }
-        
         }
     })
+
+    const goBack = () => {
+        props.navigation.goBack();
+    }
 
     const rStyle = useAnimatedStyle(() => {
         return {
@@ -53,6 +56,14 @@ export default function MovableSquare(props) {
                     <Animated.View style={[styles.square, rStyle]} />
                 </PanGestureHandler>
             </View>
+
+            {/* How to get the coordinates of the Back to Home area */}
+            <TouchableOpacity 
+                style={styles.backHome}
+                onPress = {() => goBack()}
+            >
+                <Text style={{color:COLOR[0]}}>Back to Home Page</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -68,7 +79,8 @@ const styles = StyleSheet.create({
         width: SIZE,
         height: SIZE,
         backgroundColor: COLOR[3],
-        borderRadius: 10
+        borderRadius: 10,
+        zIndex:3,
     },
     circle: {
         width: CIRCLE_RADIUS * 2,
@@ -85,5 +97,22 @@ const styles = StyleSheet.create({
         top:100,
         zIndex:2,
         fontSize:18,
+    },
+    backHome:{
+        backgroundColor:'white',
+        width:'80%',
+        position:'absolute',
+        bottom:50,
+        height:70,
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:50,
+        backgroundColor:COLOR[4],
+        zIndex:-1
     }
 })
+
+// TODO
+// How to drag square to the area that screen could back to home page
+// ? how to get the position of the view?
+// ? how to calculate the area?
