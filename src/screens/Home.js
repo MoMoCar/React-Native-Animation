@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, SafeAreaView, TouchableOpacity, StatusBar } from "react-native";
+import COLOR from '../tools/COLOR';
+import Header from '../components/Header';
 
 export default function Home({ navigation }) {
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
+            <StatusBar barStyle={'light-content'}/>
             <Header />
-
             <NavigationBtn
                 title={'BasicExample'}
                 navigateTo={() => navigation.navigate('BasicExample')}
@@ -23,26 +25,22 @@ export default function Home({ navigation }) {
                 navigateTo={() => navigation.navigate('ScrollView')}
                 backgroundColor={{ backgroundColor: COLOR[3] }}
             />
+            
+            <NavigationBtn
+                title={'InterpolateColor'}
+                navigateTo={() => navigation.navigate('InterpolateColor')}
+                backgroundColor={{ backgroundColor: COLOR[4] }}
+            />
 
             <NavigationBtn
                 title={'BottomSheetExample'}
                 navigateTo={() => navigation.navigate('BottomSheetExample')}
-                backgroundColor={{ backgroundColor: COLOR[4] }}
+                backgroundColor={{ backgroundColor: COLOR[5] }}
             />
 
         </SafeAreaView>
     );
 }
-
-const Header = () => {
-    return (
-        <View>
-            <Text>Welcome</Text>
-            <Text>React Native Animation</Text>
-        </View>
-    )
-}
-
 
 const NavigationBtn = (props) => (
     <TouchableOpacity
@@ -54,10 +52,14 @@ const NavigationBtn = (props) => (
 )
 
 const goBack = () => {
-    
+
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'black'
+    },
     btnContainer: {
         width: 350,
         height: 40,
@@ -73,14 +75,3 @@ const styles = StyleSheet.create({
         fontSize: 18,
     }
 })
-
-const COLOR = [
-    '#ccccdd',
-    '#bea9bb',
-    '#dddddd',
-    '#6199be',
-    '#779999',
-    '#be88a2',
-    '#98bb83',
-    '#c2bb85'
-]

@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//Scenes
 import Home from './src/screens/Home'
 import BottomSheetExample from './src/screens/BottomSheetExample';
 import BasicExample from './src/screens/BasicExample';
 import MovableSquare from './src/screens/MovableSquare';
 import ScrollView from './src/screens/ScrollView';
+import InterpolateColor from './src/screens/InterpolateColor';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +46,13 @@ export default function App(props) {
           name="ScrollView"
           component={ScrollView}
           options={{ title: 'ScrollView', headerShown: false }}
+        />
+
+        {/* Interpolate Color Example */}
+        <Stack.Screen
+          name="InterpolateColor"
+          component={InterpolateColor}
+          options={{ title: 'InterpolateColor', headerShown: false }}
         />
 
       </Stack.Navigator>
