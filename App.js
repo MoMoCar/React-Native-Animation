@@ -5,6 +5,7 @@ import Home from './src/screens/Home'
 import BottomSheetExample from './src/screens/BottomSheetExample';
 import BasicExample from './src/screens/BasicExample';
 import MovableSquare from './src/screens/MovableSquare';
+import ScrollView from './src/screens/ScrollView';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,12 @@ export default function App(props) {
           name="MovableSquare"
           component={MovableSquare}
           options={{ title: 'MovableSquare', headerShown: false }}
+        />
+        {/* ScroolView Example */}
+        <Stack.Screen
+          name="ScrollView"
+          component={ScrollView}
+          options={{ title: 'ScrollView', headerShown: false }}
         />
 
       </Stack.Navigator>

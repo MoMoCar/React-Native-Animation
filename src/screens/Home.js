@@ -19,9 +19,15 @@ export default function Home({ navigation }) {
             />
 
             <NavigationBtn
+                title={'ScrollView'}
+                navigateTo={() => navigation.navigate('ScrollView')}
+                backgroundColor={{ backgroundColor: COLOR[3] }}
+            />
+
+            <NavigationBtn
                 title={'BottomSheetExample'}
                 navigateTo={() => navigation.navigate('BottomSheetExample')}
-                backgroundColor={{ backgroundColor: COLOR[3] }}
+                backgroundColor={{ backgroundColor: COLOR[4] }}
             />
 
         </SafeAreaView>
