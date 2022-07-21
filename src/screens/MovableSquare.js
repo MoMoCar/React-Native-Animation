@@ -29,7 +29,7 @@ export default function MovableSquare(props) {
             if(distance > CIRCLE_RADIUS - SIZE / 2 ){
                 translateX.value = withSpring(0);
                 translateY.value = withSpring(0);
-                alert('Position will reset soon!!')
+                alert('Position has been reset!')
                 console.log('We could do something fantastic here! ')
             }
         
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         borderColor: COLOR[4]
     },
     title:{
-        color:COLOR[5],
+        color:COLOR[6],
         position:'absolute',
         top:100,
         zIndex:2,
