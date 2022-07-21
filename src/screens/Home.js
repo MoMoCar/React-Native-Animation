@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
 
             <NavigationBtn
                 title={'BottomSheetExample'}
-                navigateTo={() => navigation.navigate('BottomSheetExample')}
+                navigateTo={() => navigation.navigate('BottomSheetExample',)}
                 backgroundColor={{ backgroundColor: COLOR[3] }}
             />
 
@@ -46,6 +46,10 @@ const NavigationBtn = (props) => (
         <Text style={styles.btnText}>{props.title}</Text>
     </TouchableOpacity>
 )
+
+const goBack = () => {
+    
+}
 
 const styles = StyleSheet.create({
     btnContainer: {
