@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, StatusBar, TouchableOpacity } from "react-nativ
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import COLOR from '../tools/COLOR';
+import BackHomeButton from '../components/BackHomeButton';
 
 const SIZE = 50;
 const CIRCLE_RADIUS = 150;
@@ -59,12 +60,7 @@ export default function MovableSquare(props) {
             </View>
 
             {/* How to get the coordinates of the Back to Home area */}
-            <TouchableOpacity 
-                style={styles.backHome}
-                onPress = {() => goBack()}
-            >
-                <Text style={{color:COLOR[0]}}>Back to Home Page</Text>
-            </TouchableOpacity>
+            <BackHomeButton onPress = {() => props.navigation.goBack()}/>
         </View>
     );
 }

@@ -4,6 +4,7 @@ import COLOR from '../tools/COLOR';
 import Header from '../components/Header';
 
 export default function Home({ navigation }) {
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle={'light-content'}/>

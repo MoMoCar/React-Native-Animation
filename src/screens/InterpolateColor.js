@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Switch, Dimensions, StatusBar } from "react-native";
+import { View, StyleSheet, Text, Switch, Dimensions, StatusBar, Touchable } from "react-native";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { interpolate, interpolateColor, useAnimatedStyle, useDerivedValue, useSharedValue, withTiming } from 'react-native-reanimated';
+import BackHomeButton from '../components/BackHomeButton';
 import COLOR from '../tools/COLOR';
 
 const Colors = {
@@ -60,22 +62,27 @@ export default function InterpolateColor(props) {
     })
 
     return (
-        <Animated.View style={[styles.container, rStyle]}>
-            <StatusBar barStyle={theme === 'dark' ? 'light-content' : 'dark-content'} />
-            <Animated.Text style={[styles.text, rTextStyle]}>Theme</Animated.Text>
-            <Animated.View style={[styles.circle, rCircleStyle]}>
-                <Animated.Text style={[styles.switchText, rTextStyle]}>light</Animated.Text>
-                <Switch
-                    value={theme === 'dark'}
-                    onValueChange={(toggled) => {
-                        setTheme(toggled ? 'dark' : 'light')
-                    }}
-                    trackColor={SWITCH_TRACK_COLOR}
-                    thumbColor={COLOR[1]}
-                />
-                <Animated.Text style={[styles.switchText, rTextStyle]}>dark</Animated.Text>
+        <>
+            <Animated.View style={[styles.container, rStyle]}>
+                <StatusBar barStyle={theme === 'dark' ? 'light-content' : 'dark-content'} />
+                <Animated.Text style={[styles.text, rTextStyle]}>Theme</Animated.Text>
+                <Animated.View style={[styles.circle, rCircleStyle]}>
+                    <Animated.Text style={[styles.switchText, rTextStyle]}>light</Animated.Text>
+                    <Switch
+                        value={theme === 'dark'}
+                        onValueChange={(toggled) => {
+                            setTheme(toggled ? 'dark' : 'light')
+                        }}
+                        trackColor={SWITCH_TRACK_COLOR}
+                        thumbColor={COLOR[1]}
+                    />
+                    <Animated.Text style={[styles.switchText, rTextStyle]}>dark</Animated.Text>
+                </Animated.View>
+                <BackHomeButton onPress = {() => props.navigation.goBack()}/>
             </Animated.View>
-        </Animated.View>
+            
+        </>
+
     );
 }
 

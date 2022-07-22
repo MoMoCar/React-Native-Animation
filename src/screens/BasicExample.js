@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, StatusBar } from "react-native";
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSpring, withRepeat } from 'react-native-reanimated';
+import BackHomeButton from '../components/BackHomeButton';
 
 //define square length
 const SIZE = 100.0
@@ -71,11 +72,12 @@ export default function BasicExample(props) {
                     style={[styles.square, reanimatedStyle2, { backgroundColor: '#467ac9' }]}
                 />
             </View>
-            <View style={styles.graphContainer}>
+            <View style={[styles.graphContainer,{marginBottom:50}]}>
                 <Animated.View
                     style={[styles.square,reanimatedStyle3,{ backgroundColor: '#668687' }]}
                 />
             </View>
+            <BackHomeButton onPress = {() => props.navigation.goBack()}/>
         </View>
     );
 }
